@@ -7,6 +7,7 @@
     <a class="nav-link">
       <slot>
         <i v-if="icon" :class="icon"></i>
+        <img v-if="img" :src="img" class="imglogo" width="30px">
         <p>{{name}}</p>
       </slot>
     </a>
@@ -30,6 +31,7 @@ export default {
   props: {
     name: String,
     icon: String,
+    img: String,
     tag: {
       type: String,
       default: "router-link"
@@ -58,7 +60,12 @@ export default {
       this.removeLink(this);
     }
   }
-};
+};  
 </script>
 <style>
+  .imglogo {
+    float: left;
+    margin-right: 15px;
+    border-radius: 50%;
+  }
 </style>
