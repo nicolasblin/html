@@ -1,10 +1,10 @@
 <template>
     <div class="row">
       <div class="col-md-6">
-        <events page="All"/>
+        <events page="polytek"/>
       </div>
       <div class="col-md-6">
-        <activities page="All"/>
+        <activities page="polytek"/>
       </div>
     </div>
 </template>

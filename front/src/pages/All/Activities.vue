@@ -1,6 +1,6 @@
 <template>
   <card class="card" title="Activités récentes">
-    <div v-for="acti in actis" :key="acti.id" class="acti">
+    <div v-for="acti in goodactis" :key="acti.id" class="acti">
       <p style="text-align:center;"><b>{{acti.name}}</b></p>
       <img v-if="acti.img" :src="acti.img">
       <p v-if="acti.desc">
@@ -17,50 +17,49 @@ export default {
       actis: [
         {
           "id":1,
-          "name":"Acti1",
-          "img":"https://www.lecoindesentrepreneurs.fr/wp-content/uploads/2016/11/Activit%C3%A9-artisanale-commerciale-ou-lib%C3%A9rale.jpg",
-          "desc":"EZnonvzovnz cijzepic vinzipz ze izenc ezipznpznczepn czpecpeoncp",
-          "date":"01/01/2010",
-          "link":"http://google.fr"
+          "name":"Les Automniales",
+          "img":"https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/71004256_1162070787316047_7796058197126545408_n.png?_nc_cat=101&_nc_ohc=Ghkq9uoLIhkAX_i6Spn&_nc_ht=scontent-cdt1-1.xx&oh=02ae7c021246d9a1c2b8c4cbce58079e&oe=5EF80524",
+          "desc":"Une course autour de l'étang saint Nicolas",
+          "date":"17/10/2019",
+          "link":"https://www.facebook.com/events/397282894311952/",
+          "user": "mtpa"
         },
         {
           "id":2,
-          "name":"Acti1",
-          "img":"https://www.lecoindesentrepreneurs.fr/wp-content/uploads/2016/11/Activit%C3%A9-artisanale-commerciale-ou-lib%C3%A9rale.jpg",
-          "desc":"EZnonvzovnz cijzepic vinzipz ze izenc ezipznpznczepn czpecpeoncp",
-          "date":"01/01/2010"
-        }
-      ],
-      members: [
-        {
-          image: require("@/assets/img/faces/face-0.jpg"),
-          name: "Dj Khaled",
-          status: "Offline"
+          "name":"Ventes de goodies",
+          "img":"https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/84847998_531906564103325_7829343188648198144_n.png?_nc_cat=110&_nc_ohc=vfupuU3QOz4AX9GS5Xb&_nc_ht=scontent-cdg2-1.xx&oh=bbdd964e9911fb6d967e2682a81781a6&oe=5EF9B26C",
+          "desc":"Achetez les goodies de l'école à prix vraiment pas cher",
+          "date":"06/02/2020",
+          "user":"bde"
         },
         {
-          image: require("@/assets/img/faces/face-1.jpg"),
-          name: "Creative Tim",
-          status: "Available"
+          "id":3,
+          "name":"Clean Walk",
+          "img":"https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/84817776_2678454312268381_7462024047757361152_n.jpg?_nc_cat=106&_nc_ohc=odUJtJ1g2ZcAX9jqVg_&_nc_ht=scontent-cdt1-1.xx&oh=014c97cfa5f555f5a83266c8220b247a&oe=5EFA7463",
+          "desc":"L'équipe du Maker center a réalisé une clean walk pour nettoyer Angers",
+          "date":"20/12/2019",
+          "user":"makercenter"
         },
         {
-          image: require("@/assets/img/faces/face-1.jpg"),
-          name: "Flume",
-          status: "Busy"
+          "id":4,
+          "name":"Passage de marque Junior Initiative",
+          "img":"https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/72771094_10157832570054225_1481754036263714816_o.jpg?_nc_cat=102&_nc_ohc=5_ygPAtRO4cAX8ZE8Z-&_nc_ht=scontent-cdg2-1.xx&oh=71900db0d3beff9fbd0a14d4ad1d3b90&oe=5EBF814E",
+          "desc":"L'UAEC est labélisée et dipose désormais d'un nouveau statut",
+          "date":"30/01/2020",
+          "user":"uaecjuniorconseil"
         }
       ]
     };
   },
-  methods: {
-    getStatusClass(status) {
-      switch (status) {
-        case "Offline":
-          return "text-muted";
-        case "Available":
-          return "text-success";
-        case "Busy":
-          return "text-danger";
-        default:
-          return "text-success";
+  props: {
+    page: String
+  },
+  computed: {
+    goodactis: function() {
+      if(this.page == "All") {
+        return this.actis.slice(1);
+      } else {
+        return this.actis.filter(item => item.user == this.page);
       }
     }
   }

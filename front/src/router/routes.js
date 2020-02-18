@@ -6,6 +6,10 @@ import NotFound from "@/pages/NotFoundPage.vue";
 import Dashboard from "@/pages/Dashboard.vue";
 import UserProfile from "@/pages/UserProfile.vue";
 import UaecJuniorConseil from "@/pages/UaecJuniorConseil.vue";
+import Bde from "@/pages/Bde.vue";
+import MakerCenter from "@/pages/MakerCenter.vue";
+import Mtpa from "@/pages/Mtpa.vue";
+import Polytek from "@/pages/Polytek.vue";
 import Notifications from "@/pages/Notifications.vue";
 import Icons from "@/pages/Icons.vue";
 import Maps from "@/pages/Maps.vue";
@@ -34,9 +38,24 @@ const routes = [
         component: UaecJuniorConseil
       },
       {
-        path: "notifications",
-        name: "notifications",
-        component: Notifications
+        path: "bde",
+        name: "bde",
+        component: Bde
+      },
+      {
+        path: "mtpa",
+        name: "mtpa",
+        component: Mtpa
+      },
+      {
+        path: "polytek",
+        name: "polytek",
+        component: Polytek
+      },
+      {
+        path: "makercenter",
+        name: "makercenter",
+        component: MakerCenter
       },
       {
         path: "icons",

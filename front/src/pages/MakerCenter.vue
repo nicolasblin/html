@@ -1,10 +1,10 @@
 <template>
     <div class="row">
       <div class="col-md-6">
-        <events page="All"/>
+        <events page="makercenter"/>
       </div>
       <div class="col-md-6">
-        <activities page="All"/>
+        <activities page="makercenter"/>
       </div>
     </div>
 </template>
